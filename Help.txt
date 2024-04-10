@@ -1,0 +1,6 @@
+meme ./Sequence\ Files/S2_YSK.fasta -nmotifs 5 -w 15
+
+mast ./Sequence\ Files/YSK_KSeg.txt ./Sequence\ Files/S2_Alyrata.fasta -o "./Mast_Alyrata"
+mast ./Sequence\ Files/YSK_KSeg.txt ./Sequence\ Files/S2_Athaliana.fasta -o "./Mast_Athaliana"
+mast ./Sequence\ Files/YSK_KSeg.txt ./Sequence\ Files/S2_Ahalleri.fasta -o "./Mast_Ahalleri"
+mast ./Sequence\ Files/YSK_KSeg.txt ./Sequence\ Files/S2_YSK.fasta -o "./Mast_YSK"
