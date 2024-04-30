@@ -1,13 +1,13 @@
 import random
 
-prog_name = "./cmake-build-release---beluga/TripleA"
+prog_name = "./cmake-build-release-beluga/TripleA"
 
 
 def main():
     popsize = ["50"]
     first = "4 20"
     # second = "50 10000000 2 2 0 10"
-    second = "5 10000000 2 2 0 10"
+    second = "2 10000000 2 2 0 10"
     set = ["1", "2", "3", "4", "5"]
     tourn_size = ["7"]
     # third = "0 0.5 1.0 0.25 1 5 1"

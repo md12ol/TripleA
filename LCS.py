@@ -1,8 +1,10 @@
 
 
-seq1 = "ABCDABCD"
+seq1 = "CATC TGATCA  CGTCTGGTCACCAG TCAAGGCGATGAGTCGCGGCATGGGAGGCAATCACCGGATATGA TGCTGGTGGCTACGGCGGTGAGCGCCAC"
 # seq2 = "CATCATGATCAGTCTGGTCAAGCTCAAGCGATGGGCGGCATGGGATCCGGATATGATGCTGGTGGCTACGGTGGTGAGCACCAC"
-seq2 = "AABCD"
+seq2 = "CATGCTGACCAGTCTGGTCAAGCTCAAGGGATGAGCGGCATGGGAACCGGAACAACAACCGGATATGATGCTGGTGGCTACGGCGGTGAGCGCCAA"
+seq3 = "CATCATGATCAGTCTGGTCAAGCTCAAGCGATGGGCGGCATGGGATCCGGATATGATGCTGGTGGCTACGGTGGTGAGCACCAC"
+seq4 = "CATCATGATCAGTCGTCTGGTCA  AGTTCAAGG GATG G  GCGGCAT  G GG  A  ACCGGATATGAC GCTGGTGGCTACGGCGGTGAGCGCCAC"
 
 
 def print_LCS(src1, src2, s1, s2):
@@ -18,14 +20,14 @@ def print_LCS(src1, src2, s1, s2):
             cur_row = cur_row - 1
             cur_col = cur_col - 1
             pass
-        elif src1[cur_row][cur_col] == cur_row - 1:  # Gap in Seq1
-            output[0] = "_" + output[0]
-            output[1] = s2[cur_col - 1] + output[1]
-            cur_row = cur_row - 1
-            pass
-        else:  # Gap in Seq2
+        elif src1[cur_row][cur_col] == cur_row - 1:  # Gap in Seq2
             output[0] = s1[cur_row - 1] + output[0]
             output[1] = "_" + output[1]
+            cur_row = cur_row - 1
+            pass
+        else:  # Gap in Seq1
+            output[0] = "_" + output[0]
+            output[1] = s2[cur_col - 1] + output[1]
             cur_col = cur_col - 1
             pass
         pass
@@ -70,11 +72,16 @@ def LCS(s1, s2):
     print(longest)
     output = print_LCS(src_i, src_j, s1, s2)
     print(output)
+    return longest[len(s1)][len(s2)]
     pass
 
 
 def main():
-    LCS(seq1, seq2)
+    sum = 0
+    sum += LCS(seq1, seq2)
+    sum += LCS(seq1, seq3)
+    sum += LCS(seq1, seq4)
+    print(sum)
     pass
 
 

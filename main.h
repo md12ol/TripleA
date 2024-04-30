@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sys/stat.h>
 #include "SDA.h"
+#include <string>
 
 using namespace std;
 
@@ -220,8 +221,10 @@ vector<vector<int>> getSequences(const string &pathToSeqs) {
                 do { // Get sequence
                     getline(in, tmp);
                     getline(in, tmp);
-                    rtn.push_back(seqToVector(tmp));
-                    found = tmp.find(">");
+                    found = tmp.find('>');
+                    if (found == string::npos) {
+                        rtn.push_back(seqToVector(tmp));
+                    }
                 } while (in.good() && found == string::npos); // While there are more sequences
             }
         }

@@ -1,0 +1,113 @@
+Next Steps:
+>   Normalize the fitness values based on sequence length
+>   Increase the number of segments in a set
+>   Stick with YSK2 architecture
+>   Think about a way to reward longer uninterrupted matches
+>   Take a look at HMMs
+
+>   Types of Amino Acids?
+>   Reduced amino acid set
+>   How many more characters can be added to SDAs?
+>   Way of aligning IDPs (KMAD) - Steffen sent the paper
+>   PAM and Blosum matricies (substitution matricies)
+>   Serine Verianine and Therranine
+>   Dehydrins don't want hydrophobic amino acids (getting away from water)
+
+DISSERTATION:
+>   Propose a committee meeting week of May 6th or 13th
+>   Run through presentation on May 7th
+>   Contact Zeny to schedule the meeting
+>   Full presentation of the work and steps to move forward
+
+
+
+increasing the size of the sets used in this work
+
+this end, the next step will be to increa
+
+Non-phi segment sequences.
+
+Mixing phi and non-phi sets.
+
+Is there some signal in the Phi-segment?
+
+Different IDPs from the same organism will this pick up something from Phi
+
+Take AA composition from these phi-segments (codon bias) and scrambling them.
+
+Build an SDA for Phi and apply to non-phi from the same species.
+
+Looking at which sequences contribute to the naive fitness the most -> indicates similarity...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Arabidopsis
+
+
+
+
+Ahalleri - 2
+Alyrata - 3
+Athaliana - 2
+
+Do MSA on all 7
+Grab most similar from each of the three
+Slice out the Phi-segment from each of these three unaligned sequences
+Grab the corresponding DNA sequence for each
+
+Naive Match Fitness: count the number of characters matched in all
+three sequences
+
+Frequency Match Fitness: add the frequency of correct matches at each
+index
+Output:     A   B   C   D   E   F
+Seq1:       A   A   C   E   E   F
+Seq2:       A   B   D   D
+            1   .5  .5  .5  1   1
+            2.5
+
+Correctness Match Fitness:
+Seq1: 80%
+Seq2: 70%
+Fitness: 75%
+
+Word Match Fitness:
+SDA vs Seqs looking at words of length 2, 3, etc.
+
+Edit-Distance Fitness:
+SDA with gaps between the characters.
+
+MSA of the seqs before running
+MSA of the seq with the SDA output
+
+
+
+
+Implement
+
