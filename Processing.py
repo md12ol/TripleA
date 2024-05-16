@@ -591,9 +591,7 @@ def LCS(s1, s2):
                 pass
             pass
         pass
-    print(longest)
     output = print_LCS(src_i, src_j, s1, s2)
-    print(output)
     return longest[len(s1)][len(s2)], output
     pass
 
@@ -824,18 +822,18 @@ def main():
         all_sda_batches.append(one_seq_batches)
         pass
 
-    # for seq_idx, seq_batches in enumerate(all_sda_batches):
-    #     for exp_idx, exp_batches in enumerate(seq_batches):
-    #         for batch in exp_batches:
-    #             sda_infos, sda_outputs, sda_fits = process_sda(batch[0], sda_states, sda_chars)
-    #             num_gens = batch[1]
-    #             num_gens = int(int(num_gens) / 10) * 10
-    #             make_heatmap(sda_infos, sda_states, sda_chars, outp + "HeatmapSet" + str(seq_idx + 1) + "Exp" + str(
-    #                 exp_idx + 1), num_gens, mode_data[seq_idx][exp_idx][0][0], seq_idx + 1, exp_descriptions[exp_idx])
-    #             pass
-    #         pass
-    #     pass
-    #
+    for seq_idx, seq_batches in enumerate(all_sda_batches):
+        for exp_idx, exp_batches in enumerate(seq_batches):
+            for batch in exp_batches:
+                sda_infos, sda_outputs, sda_fits = process_sda(batch[0], sda_states, sda_chars)
+                num_gens = batch[1]
+                num_gens = int(int(num_gens) / 10) * 10
+                make_heatmap(sda_infos, sda_states, sda_chars, outp + "HeatmapSet" + str(seq_idx + 1) + "Exp" + str(
+                    exp_idx + 1), num_gens, mode_data[seq_idx][exp_idx][0][0], seq_idx + 1, exp_descriptions[exp_idx])
+                pass
+            pass
+        pass
+
     for seq_num, fld_names in enumerate(exp_dirs):
         for exp_num, fold in enumerate(fld_names):
             if exp_num == 0:
@@ -904,24 +902,6 @@ def main():
                 pass
             pass
         pass
-
-    # for sidx, seq in enumerate(seq_idxs):
-    #     best_runs = []
-    #     best_of_best_exp = -1
-    #     best_of_best_val = 0
-    #     for didx, dat in enumerate(mode_data[sidx]):
-    #         best_runs.append(dat[0][0])
-    #         if dat[0][1] > best_of_best_val:
-    #             best_of_best_val = dat[0][1]
-    #             best_of_best_exp = didx
-    #         pass
-    #     make_table(mode_stats[sidx], best_runs, exp_descriptions, outp +
-    #                "Seq" + str(seq) + "table" + ".dat", False)
-    #     info = "Best for Sequence " + str(seq) + " is " + \
-    #            "EXP" + str(best_of_best_exp + 1) + ": " + str(exp_descriptions[best_of_best_exp])
-    #     print_best_info(outp + "Seq" + str(seq) + "_best.dat", info,
-    #                     mode_data[sidx][best_of_best_exp][0], sequences[seq])
-    #     pass
 
     print("END")
     pass
